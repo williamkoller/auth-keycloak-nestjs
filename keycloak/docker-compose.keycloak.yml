@@ -11,3 +11,17 @@ services:
       DB_VENDOR: ${DB_VENDOR}
     ports:
       - 8080:8080
+  db_postgres:
+    image: postgres:latest
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}  
+    volumes:
+      - pg_data:/var/lib/postgresql/data    
