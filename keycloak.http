@@ -1,8 +1,0 @@
-POST http://localhost:9090/auth/realms/KollerLabs041/protocol/openid-connect/token
-Content-Type: application/x-www-form-urlencoded
-
-client_id=keycloak-multi-tenancy-nestjs
-&client_secret=52a070fc-e18d-46a6-82f2-47cb82dba127
-&grant_type=password
-&username=williamkoller
-&password=q1w2e3r4t5y6
