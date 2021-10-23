@@ -1,6 +1,7 @@
 import envFolderPath, { environments } from '@/config/environments';
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from '@/modules/auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -8,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: envFolderPath.folderPath,
       load: [environments],
     }),
+    forwardRef(() => AuthModule),
   ],
   controllers: [],
   providers: [],
